@@ -2,22 +2,21 @@
 #include <vector>
 
 
-int countGreaterThan(const std::vector<int>& arr, int pivot) {
+int countGreaterThan(const std::vector<int>& arr, int pivot) 
+{
     int left = 0;
     int right = arr.size() - 1;
     int result = 0;
     
-
     while (left <= right) {
         int mid = left + (right - left) / 2;
         
         if (arr[mid] <= pivot) {
-            // Если элемент меньше или равен pivot, идем вправо
+           
             left = mid + 1;
-        } else {
-            // Если элемент больше pivot, запоминаем его позицию
-            // и ищем еще более левый элемент, который тоже может быть больше pivot
-            result = arr.size() - mid;  // все элементы справа от mid тоже больше pivot
+        } else 
+        { 
+            result = arr.size() - mid;  
             right = mid - 1;
         }
     }
@@ -42,4 +41,5 @@ int main() {
               << ": " << count << std::endl;
     
     return 0;
+
 }
